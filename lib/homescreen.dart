@@ -1,7 +1,7 @@
 //main page of the Application where parallaxproperties are added
 
 import 'package:flutter/material.dart';
-import 'package:se/assets/contents.dart';
+import 'package:se/Widgets/contents.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -31,18 +31,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      body: Container(
-        child: Stack(
-          children: [
-            Center(
-                child: cntrl1.value.isInitialized? AspectRatio(  
-                aspectRatio: 0.489,
-                child: VideoPlayer(cntrl1),
-                ):Container(),
-            )
-          ],
-        ),
+      body: LayoutBuilder(
+        builder: (BuildContext context , BoxConstraints constraints) {
+          final screenWidth = constraints.maxWidth;
+            final screenHeight = constraints.maxHeight;
+          return Container(
+            height: screenHeight,
+            width: screenWidth,
+            child: Stack(
+              children: [
+                
+                Center(
+                    child: cntrl1.value.isInitialized? Container(
+                    width: screenWidth,
+                    height: screenHeight,  
+                    child: VideoPlayer(cntrl1)):Container(),
+                ),
+                ElevatorApp()
+              ],
+            ),
+          );
+        }
       ),
     );
   }
@@ -71,9 +82,9 @@ class _ElevatorAppState extends State<ElevatorApp> {
     return ListView.builder(
       controller: _scrollController,
       reverse: false, // Reverse the list so it starts at the bottom.
-      itemCount: 50, // Replace with the number of floors in your elevator.
+      itemCount: 10, // Replace with the number of floors in your elevator.
       itemBuilder: (BuildContext context, int index) {
-        return contents(context);
+        return contents(context,'lib/assets/Picsart_23-10-06_22-56-38-205.png','Hello');
       },
     );
   }

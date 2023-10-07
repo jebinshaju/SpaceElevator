@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget contents(BuildContext context){
+Widget contents(BuildContext context ,String strimg , String strdesc ){
   return Column(
     children: [
       SizedBox(
@@ -14,7 +14,7 @@ Widget contents(BuildContext context){
           color: Colors.transparent
           
         ),
-        child: Center(child: Image.asset('lib/assets/Picsart_23-10-06_22-56-38-205.png')),
+        child: Center(child: Image.asset(strimg)),
       ),
       Container(
         height: MediaQuery.of(context).size.height/2.5,
@@ -22,7 +22,9 @@ Widget contents(BuildContext context){
         decoration: BoxDecoration(
           color: Colors.transparent
         ),
-        child: Center(child: Text('Example text')),
+        child: Center(child: Text(strdesc,style: TextStyle(
+          color: Colors.white
+        ),)),
       )
     ],
   );
