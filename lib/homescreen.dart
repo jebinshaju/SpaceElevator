@@ -80,12 +80,18 @@ class _ElevatorAppState extends State<ElevatorApp> {
       "showcases stunning natural wonders, vibrant cityscapes, and diverse life forms,"
       " fostering a deep appreciation for our precious planet.","EARTH"]
     ];
+    List planetDesc = [[
+      "lib/assets/planet-earth-globe-view-from-space-showing-realistic-earth-surface-world-map_31965-12635.jpg",
+      "Explore the Jewel of the Cosmos - Earth\nWelcome to an unparalleled journey that takes you to the most "
+      "exquisite destination in the universe – our very own planet, Earth. As you embark on this extraordinary"
+      " adventure with our space travel agency, you'll encounter the beauty, diversity, and wonder that our planet offers."
+    ]];
     return ListView.builder(
       controller: _scrollController,
       reverse: false, // Reverse the list so it starts at the bottom.
       itemCount: 4, // Replace with the number of floors in your elevator.
       itemBuilder: (BuildContext context, int index) {
-        return contents(context, planetList[0][0], planetList[0][1],planetList[0][2]);
+        return contents(context, planetList[0][0], planetList[0][1],planetList[0][2],planetDesc[0][0],planetDesc[0][1]);
       },
     );
   }

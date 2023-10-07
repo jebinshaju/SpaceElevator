@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 Widget contents(
-    BuildContext context, String strimg, String strdesc, String planetName) {
+    BuildContext context, String strimg, String strdesc, String planetName,String plntimg,plntdesc) {
   return InkWell(
     onTap: () {
-      bookingInterface(context,strimg,strdesc,planetName);
+      bookingInterface(context,plntimg,plntdesc,planetName,);
     },
     child: Column(
       children: [
@@ -53,7 +53,7 @@ Widget contents(
   );
 }
 
-void bookingInterface(BuildContext context,String strimg,String strdesc, String planetName) async {
+void bookingInterface(BuildContext context,String plntimg,String plntdesc, String planetName) async {
   showModalBottomSheet(
       isScrollControlled: true,
       isDismissible: true,
@@ -68,38 +68,43 @@ void bookingInterface(BuildContext context,String strimg,String strdesc, String 
             initialChildSize: 0.75,
             builder: (BuildContext context, controller) {
               return Container(
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height/20,
-                      ),
-                      Text(planetName,
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white),),
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Column(
+                      children: [
                         SizedBox(
-                          height: MediaQuery.of(context).size.height/550,
+                          height: MediaQuery.of(context).size.height/20,
                         ),
-                        Center(
-                          child: Container(
-                            height: MediaQuery.of(context).size.height/800,
-                            width: MediaQuery.of(context).size.width/5,
-                            decoration: BoxDecoration(
-                              color: Colors.white
+                        Text(planetName,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white),),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height/550,
+                          ),
+                          Center(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height/800,
+                              width: MediaQuery.of(context).size.width/5,
+                              decoration: BoxDecoration(
+                                color: Colors.white
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50)
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50)
+                              ),
+                              child: Image.asset(plntimg),
                             ),
-                            child: Image.asset(''),
                           ),
-                        )
-                    ],
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height,
+                          )
+                      ],
+                    ),
                   ),
                 )
               );
