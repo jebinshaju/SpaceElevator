@@ -82,9 +82,34 @@ class _ElevatorAppState extends State<ElevatorApp> {
     ];
     List planetDesc = [[
       "lib/assets/planet-earth-globe-view-from-space-showing-realistic-earth-surface-world-map_31965-12635.jpg",
-      "Explore the Jewel of the Cosmos - Earth\nWelcome to an unparalleled journey that takes you to the most "
+      "\n\nExplore the Jewel of the Cosmos - Earth\n\nWelcome to an unparalleled journey that takes you to the most "
       "exquisite destination in the universe – our very own planet, Earth. As you embark on this extraordinary"
-      " adventure with our space travel agency, you'll encounter the beauty, diversity, and wonder that our planet offers."
+      " adventure with our space travel agency, you'll encounter the beauty, diversity, and wonder that our planet offers.\n\n"
+      "Astonishing Natural Wonders\n\n"
+      "Our home planet is adorned with breathtaking natural wonders, from the towering peaks of the Himalayas to the lush "
+      "rainforests of the Amazon. Experience the awe-inspiring beauty of these landscapes from space, where you can witness the"
+      " vibrant colors and intricate details of our world.\n\n"
+      "Mesmerizing Aerial Views\n\n"
+      "On your journey, you'll have the chance to observe Earth's captivating vistas from orbit. Gaze in wonder at the vast deserts,"
+      " meandering rivers, and sprawling cityscapes. Witness the changing seasons as they sweep across continents, painting the Earth in"
+      " a mosaic of colors.\n\n"
+      "Biodiversity Extravaganza\n\n"
+      "Earth is teeming with life in all its forms. Observe the diverse ecosystems, from the Great Barrier Reef's underwater wonderland to"
+      " the African savannah's majestic wildlife. As you orbit our planet, you'll gain a newfound appreciation for the delicate balance of"
+      " life on Earth\n\n"
+      "Human Achievement and Innovation\n\n"
+      "Marvel at the lights of cities, a testament to human innovation and progress. See the Great Wall of China, the Pyramids of Giza,"
+      " and other iconic landmarks from space. Our planet's history and cultures are written across its landscapes\n\n"
+      "A Fragile Oasis\n\n"
+      "As you journey through space, you'll come to understand the importance of preserving our fragile oasis. Earth is a precious jewel in the vast cosmos, "
+      "and it's our responsibility to protect and cherish it for generations to come\n\n"
+      "Unforgettable Experience\n\n"
+      "This space travel adventure is not just a trip; it's a transformative experience that will forever change your perspective. Witness the fragility and"
+      " resilience of Earth from the unique vantage point of space, and return with a profound connection to our planet\n\n"
+      "Book Your Space Tour\n\n"
+      "Don't miss the opportunity to embark on this once-in-a-lifetime journey to explore Earth from space. Contact our space travel agency to book your space"
+      " tour today and join the ranks of those who have beheld the beauty of our extraordinary planet\n\n"
+      "Experience Earth as you've never seen it before – from the cosmos. It's time to make your dream of space travel a reality\n\n"
     ]];
     return ListView.builder(
       controller: _scrollController,

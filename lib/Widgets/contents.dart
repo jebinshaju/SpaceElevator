@@ -1,11 +1,16 @@
 //the contents that needs to be displayed in the applicaton
 import 'package:flutter/material.dart';
 
-Widget contents(
-    BuildContext context, String strimg, String strdesc, String planetName,String plntimg,plntdesc) {
+Widget contents(BuildContext context, String strimg, String strdesc,
+    String planetName, String plntimg, plntdesc) {
   return InkWell(
     onTap: () {
-      bookingInterface(context,plntimg,plntdesc,planetName,);
+      bookingInterface(
+        context,
+        plntimg,
+        plntdesc,
+        planetName,
+      );
     },
     child: Column(
       children: [
@@ -53,8 +58,11 @@ Widget contents(
   );
 }
 
-void bookingInterface(BuildContext context,String plntimg,String plntdesc, String planetName) async {
+void bookingInterface(BuildContext context, String plntimg, String plntdesc,
+    String planetName) async {
+      bool convert=true;
   showModalBottomSheet(
+    
       isScrollControlled: true,
       isDismissible: true,
       context: context,
@@ -68,46 +76,53 @@ void bookingInterface(BuildContext context,String plntimg,String plntdesc, Strin
             initialChildSize: 0.75,
             builder: (BuildContext context, controller) {
               return Container(
-                child: SingleChildScrollView(
-                  child: Center(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height/20,
+                  child: SingleChildScrollView(
+                child: Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 20,
+                      ),
+                      Text(
+                        planetName,
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 550,
+                      ),
+                      Center(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 800,
+                          width: MediaQuery.of(context).size.width / 5,
+                          decoration: BoxDecoration(color: Colors.white),
                         ),
-                        Text(planetName,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white),),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height/550,
-                          ),
-                          Center(
-                            child: Container(
-                              height: MediaQuery.of(context).size.height/800,
-                              width: MediaQuery.of(context).size.width/5,
-                              decoration: BoxDecoration(
-                                color: Colors.white
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50)
-                              ),
-                              child: Image.asset(plntimg),
-                            ),
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height,
-                          )
-                      ],
-                    ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50)),
+                          child: Image.asset(plntimg),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 60,
+                      ),
+                      Container(
+                        child: Center(
+                            child: Text(
+                          plntdesc,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        )),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height/30,
+                      )
+                    ],
                   ),
-                )
-              );
+                ),
+              ));
             });
       });
 }
