@@ -61,7 +61,6 @@ Widget contents(BuildContext context, String strimg, String strdesc,
 
 void bookingInterface(BuildContext context, String plntimg, String plntdesc,
     String planetName) async {
-      bool convert=true;
   showModalBottomSheet(
     
       isScrollControlled: true,
@@ -101,6 +100,7 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
+                          height: MediaQuery.of(context).size.height/3.5,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50)),
                           child: Image.asset(plntimg),
@@ -122,7 +122,7 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
                       ),
                       InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const BookPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const bookPage()));
                         },
                         child: Container(
                           
