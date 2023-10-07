@@ -62,6 +62,8 @@ flutter:
     - lib/assets/MOBILE-Space.mp4
     - lib/assets/Picsart_23-10-06_22-56-38-205.png
     - lib/assets/background.mp4
+    - lib/assets/pngwing.com.png
+    - lib/assets/planet-earth-globe-view-from-space-showing-realistic-earth-surface-world-map_31965-12635.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

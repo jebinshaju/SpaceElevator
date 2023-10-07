@@ -12,49 +12,45 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late VideoPlayerController cntrl1;
 
-   late VideoPlayerController cntrl1;
-   
-   @override
-  void initState(){
+  @override
+  void initState() {
     super.initState();
     cntrl1 = VideoPlayerController.asset('lib/assets/background.mp4')
-    ..initialize().then((_){
-      setState(() {
-        
+      ..initialize().then((_) {
+        setState(() {});
+        cntrl1.play();
+        cntrl1.setLooping(true);
+        cntrl1.setVolume(0.0);
       });
-      cntrl1.play();
-      cntrl1.setLooping(true);
-      cntrl1.setVolume(0.0);
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: LayoutBuilder(
-        builder: (BuildContext context , BoxConstraints constraints) {
-          final screenWidth = constraints.maxWidth;
-            final screenHeight = constraints.maxHeight;
-          return Container(
-            height: screenHeight,
-            width: screenWidth,
-            child: Stack(
-              children: [
-                
-                Center(
-                    child: cntrl1.value.isInitialized? Container(
-                    width: screenWidth,
-                    height: screenHeight,  
-                    child: VideoPlayer(cntrl1)):Container(),
-                ),
-                ElevatorApp()
-              ],
-            ),
-          );
-        }
-      ),
+          builder: (BuildContext context, BoxConstraints constraints) {
+        final screenWidth = constraints.maxWidth;
+        final screenHeight = constraints.maxHeight;
+        return Container(
+          height: screenHeight,
+          width: screenWidth,
+          child: Stack(
+            children: [
+              Center(
+                child: cntrl1.value.isInitialized
+                    ? Container(
+                        width: screenWidth,
+                        height: screenHeight,
+                        child: VideoPlayer(cntrl1))
+                    : Container(),
+              ),
+              ElevatorApp()
+            ],
+          ),
+        );
+      }),
     );
   }
 }
@@ -79,12 +75,17 @@ class _ElevatorAppState extends State<ElevatorApp> {
 
   @override
   Widget build(BuildContext context) {
+    List planetList = [
+      ["lib/assets/pngwing.com.png", "Discover Earth's Majesty: Our space tour "
+      "showcases stunning natural wonders, vibrant cityscapes, and diverse life forms,"
+      " fostering a deep appreciation for our precious planet.","EARTH"]
+    ];
     return ListView.builder(
       controller: _scrollController,
       reverse: false, // Reverse the list so it starts at the bottom.
-      itemCount: 10, // Replace with the number of floors in your elevator.
+      itemCount: 4, // Replace with the number of floors in your elevator.
       itemBuilder: (BuildContext context, int index) {
-        return contents(context,'lib/assets/Picsart_23-10-06_22-56-38-205.png','Hello');
+        return contents(context, planetList[0][0], planetList[0][1],planetList[0][2]);
       },
     );
   }
