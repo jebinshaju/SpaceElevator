@@ -1,5 +1,6 @@
 //the contents that needs to be displayed in the applicaton
 import 'package:flutter/material.dart';
+import 'package:se/bookPage.dart';
 
 Widget contents(BuildContext context, String strimg, String strdesc,
     String planetName, String plntimg, plntdesc) {
@@ -117,7 +118,30 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
                         )),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height/30,
+                        height: MediaQuery.of(context).size.height/40,
+                      ),
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const BookPage()));
+                        },
+                        child: Container(
+                          
+                          height: MediaQuery.of(context).size.height/20,
+                          width: MediaQuery.of(context).size.width/2.5,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: Color.fromRGBO(87, 108, 188 ,1)
+                          ),
+                          child: Center(
+                            child: Text('Book Now',style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20
+                            ),),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height/15,
                       )
                     ],
                   ),
