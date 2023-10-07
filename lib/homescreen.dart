@@ -76,28 +76,44 @@ class _ElevatorAppState extends State<ElevatorApp> {
   @override
   Widget build(BuildContext context) {
     List<List<String>> planetlis = [
-      ["lib/assets/neptune.png", "this is Neptune", "Neptune"],
-      ["lib/assets/uranus.png", "this is uranus", "uranus"],
-      ["lib/assets/saturn.png", "this is Saturn", "Saturn"],
-      ["lib/assets/jupiter.png", "this is Jupiter", "Jupiter"],
+      [
+        "lib/assets/neptune.png",
+        "Neptune's Mystique: Dive into the deep blue atmosphere of Neptune, where fierce winds and mysterious dark spots create an enigmatic world that beckons exploration.",
+        "Neptune"
+      ],
+      [
+        "lib/assets/uranus.png",
+        "Uranus Uncharted: Venture to the icy realms of Uranus, where the planet rotates on its side, presenting unique challenges and a serene, pale-blue beauty that hides many secrets.",
+        "uranus"
+      ],
+      [
+        "lib/assets/saturn.png",
+        "Saturn's Elegance: Visit the ringed wonder, Saturn, and be awed by its stunningly intricate ring system, breathtaking icy moons, and the mesmerizing dance of particles that make this planet a celestial jewel.",
+        "Saturn"
+      ],
+      [
+        "lib/assets/jupiter.png",
+        "Jupiter's Majesty: Experience the largest planet in our solar system, Jupiter, with its swirling storms and mesmerizing bands of clouds, offering a glimpse into the majestic power of gas giants.",
+        "Jupiter"
+      ],
       [
         "lib/assets/mars.png",
-        "This is Mars",
+        "Mars: The Red Frontier - Join us on an expedition to Mars, where you'll witness the rust-colored landscapes, the grandeur of Olympus Mons, and the tantalizing possibility of past or present life lurking beneath its surface.",
         "Mars",
       ],
       [
         "lib/assets/earth.png",
         "Discover Earth's Majesty: Our space tour showcases stunning natural wonders, vibrant cityscapes, and diverse life forms, fostering a deep appreciation for our precious planet.",
-        "EARTH",
+        "Earth",
       ],
       [
         "lib/assets/venus.png",
-        "This is Venus",
+        "Venus Unveiled: Explore the scorching surface of Venus, where crushing atmospheric pressure and acidic clouds shroud a landscape of towering volcanoes and rugged highlands, making it an otherworldly wonder.",
         "Venus",
       ],
       [
         "lib/assets/mercury.png",
-        "This is Mercury",
+        "Mercury's Marvels: Our journey to Mercury unveils a world of extreme temperature variations, vast impact craters, and a desolate beauty that captivates the imagination.",
         "Mercury",
       ]
     ];
@@ -164,7 +180,8 @@ class _ElevatorAppState extends State<ElevatorApp> {
     return ListView.builder(
       controller: _scrollController,
       reverse: false, // Reverse the list so it starts at the bottom.
-      itemCount: planetDesc.length , // Replace with the number of floors in your elevator.
+      itemCount: planetDesc
+          .length, // Replace with the number of floors in your elevator.
       itemBuilder: (BuildContext context, int index) {
         return contents(context, planetlis[index][0], planetlis[index][1],
             planetlis[index][2], planetDesc[index][0], planetDesc[index][1]);
