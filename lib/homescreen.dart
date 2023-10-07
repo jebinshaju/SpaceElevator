@@ -1,5 +1,7 @@
+//main page of the Application where parallaxproperties are added
+
 import 'package:flutter/material.dart';
-import 'package:se/Widgets/astronaut.dart';
+import 'package:se/assets/contents.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(child: Container(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: astronaut(context)
+          child: contents(context),
         ),
       )),
     );

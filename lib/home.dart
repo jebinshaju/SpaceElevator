@@ -1,3 +1,5 @@
+//the Video Interface while Starting the Application
+
 import 'package:flutter/material.dart';
 import 'package:se/homescreen.dart';
 
@@ -47,7 +49,6 @@ class _HomeState extends State<Home> {
         child: Container(
           child: Stack(
             children: [
-              
               Center(
                 child: cntrl.value.isInitialized? AspectRatio(  
                 aspectRatio: 0.489,
