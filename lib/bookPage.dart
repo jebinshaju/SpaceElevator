@@ -39,10 +39,13 @@ class _bookPageState extends State<bookPage> {
         return Theme(
           data: ThemeData.light().copyWith(
             primaryColor:
-                Colors.blue, // Your primary color // Your accent color
+                Colors.white, // Your primary color // Your accent color
             colorScheme: ColorScheme.light(
                 primary: Colors.blue), // Your primary color again
-            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+            buttonTheme: ButtonThemeData(
+                textTheme: ButtonTextTheme.normal,
+                highlightColor: Colors.white,
+                buttonColor: Colors.white),
           ),
           child: child!,
         );
@@ -102,7 +105,13 @@ class _bookPageState extends State<bookPage> {
                             height: MediaQuery.of(context).size.height / 20,
                             width: MediaQuery.of(context).size.width / 3.5,
                             decoration: BoxDecoration(
-                              color: Colors.white12,
+                             gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Colors.white60,
+                                Colors.white12
+                              ]),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
                                 width: 2,
@@ -121,9 +130,9 @@ class _bookPageState extends State<bookPage> {
                                 keyboardType: TextInputType
                                     .number, // Numeric keyboard type
                                 decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Date',
-                                ),
+                                    border: InputBorder.none,
+                                    hintText: 'Date',
+                                    hintStyle: TextStyle(color: Colors.white)),
                                 onTap: () {
                                   _selectDate(context);
                                 },

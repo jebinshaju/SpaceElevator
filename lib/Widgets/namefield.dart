@@ -5,7 +5,13 @@ Widget namefield(BuildContext context) {
     height: MediaQuery.of(context).size.height / 20,
     width: MediaQuery.of(context).size.width / 1.1,
     decoration: BoxDecoration(
-        color: Colors.white12,
+        gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              Colors.white60,
+              Colors.white12
+            ]),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
             width: 2,
@@ -15,18 +21,14 @@ Widget namefield(BuildContext context) {
               205,
               1,
             ))),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 15, 3, 3),
-              child: TextField(
-
-                decoration: InputDecoration(
-                  hintText: 'Enter Your Age',
-                  hintStyle: TextStyle(
-                    color: Colors.white
-                  ),
-                  border: InputBorder.none
-                ),
-              ),
-            ),
+    child: Padding(
+      padding: const EdgeInsets.fromLTRB(15, 15, 3, 3),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: 'Enter Your Name',
+            hintStyle: TextStyle(color: Colors.black),
+            border: InputBorder.none),
+      ),
+    ),
   );
 }

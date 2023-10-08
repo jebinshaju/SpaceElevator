@@ -5,7 +5,12 @@ Widget ageDate(BuildContext context) {
     height: MediaQuery.of(context).size.height / 20,
     width: MediaQuery.of(context).size.width / 5,
     decoration: BoxDecoration(
-        color: Colors.white12,
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [Colors.white60,
+          Colors.white12
+          ]),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
             width: 2,
@@ -22,7 +27,7 @@ Widget ageDate(BuildContext context) {
         keyboardType: TextInputType.number, // Specify the numeric keyboard type
         decoration: InputDecoration(
           hintText: 'Age',
-          hintStyle: TextStyle(color: Colors.white),
+          hintStyle: TextStyle(color: Colors.black),
           border: InputBorder.none),
       ),
     ),
