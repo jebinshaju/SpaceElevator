@@ -1,6 +1,6 @@
 # SpaceElevator
 
-Welcome to the SpaceElevator project! This repository contains the source code for a Flutter application that simulates a space elevator journey. Explore the fascinating world of space travel and experience the adventure of ascending to the stars.
+Welcome to the SpaceElevator project! a virtual tour and booking application for exploring celestial bodies in our solar system. This repository contains the source code for a Flutter-based mobile application that offers an immersive space exploration experience.
 
 [Download APK](https://drive.google.com/drive/folders/1VmP-tTF_bFgj4h1wUZfgePaC_-4_mTTX)
 
@@ -31,9 +31,9 @@ SpaceElevator is a Flutter-based mobile application that offers an exciting spac
 
 ### Key Features
 
-- **Simulation**: Experience a realistic space elevator journey with stunning visuals and animations.
-- **Customization**: Customize your space elevator's appearance and settings to suit your preferences.
-- **Exploration**: Learn about space and the science behind space elevators through interactive content.
+- **Exploration**: Embark on virtual tours of celestial bodies in the solar system.
+- **Detailed Brochures**: Access detailed and informative brochures for each celestial body.
+- **Booking**: Reserve your spot for upcoming space tours and provide essential information.
 
 ## Getting Started
 
@@ -71,15 +71,16 @@ To get SpaceElevator up and running on your local machine, follow these steps:
    flutter run
    ```
 
+
 ## App Overview
 
-### Simulation
+### Exploration
 
-Upon launching the app, you'll step into a virtual space elevator that will take you on an exciting journey to space. Experience the thrill of ascending to the stars while enjoying stunning visuals and engaging animations.
+Upon launching the app, you can select celestial bodies from our solar system to explore. Click on a celestial body to access detailed brochures with information about its features, history, and more. Immerse yourself in a virtual tour of these fascinating worlds.
 
-### Customization
+### Booking
 
-SpaceElevator allows you to customize various aspects of your space elevator, including its appearance, speed, and destination. Tailor your experience to match your preferences and embark on unique adventures.
+For those ready to embark on a real-life space tour, Solar System Tours offers a booking feature. Provide your personal information, select your desired celestial destination, and confirm your booking. Get ready to experience space like never before!
 
 ## Project Structure
 
