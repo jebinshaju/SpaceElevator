@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:se/Widgets/ageAnddateField.dart';
 import 'package:se/Widgets/namefield.dart';
 import 'package:se/homescreen.dart';
 import 'package:video_player/video_player.dart';
 
 class bookPage extends StatefulWidget {
-  const bookPage({super.key});
+
+final String dest;
+  bookPage({super.key , required this.dest});
 
   @override
   State<bookPage> createState() => _bookPageState();
@@ -15,6 +18,8 @@ class bookPage extends StatefulWidget {
 class _bookPageState extends State<bookPage> {
   late VideoPlayerController cntrl3;
   TextEditingController dateController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController agecontroller = TextEditingController();
   DateTime? selectedDate;
 
   @override
@@ -38,11 +43,10 @@ class _bookPageState extends State<bookPage> {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            primaryColor:
-                Colors.white, // Your primary color // Your accent color
-            colorScheme: ColorScheme.light(
-                primary: Colors.blue), // Your primary color again
-            buttonTheme: ButtonThemeData(
+            primaryColor: Colors.white,
+            colorScheme: const ColorScheme.light(
+                primary: Colors.blue),
+            buttonTheme: const ButtonThemeData(
                 textTheme: ButtonTextTheme.normal,
                 highlightColor: Colors.white,
                 buttonColor: Colors.white),
@@ -61,20 +65,20 @@ class _bookPageState extends State<bookPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ) {
     return Scaffold(
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           final screenWidth = constraints.maxWidth;
           final screenHeight = constraints.maxHeight;
-          return Container(
+          return SizedBox(
             height: screenHeight,
             width: screenWidth,
             child: Stack(
               children: [
                 Center(
                   child: cntrl3.value.isInitialized
-                      ? Container(
+                      ? SizedBox(
                           width: screenWidth,
                           height: screenHeight,
                           child: VideoPlayer(cntrl3),
@@ -87,7 +91,7 @@ class _bookPageState extends State<bookPage> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 4,
                       ),
-                      namefield(context),
+                      namefield(context, nameController),
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 44,
                       ),
@@ -96,7 +100,7 @@ class _bookPageState extends State<bookPage> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 5.5,
                           ),
-                          ageDate(context),
+                          ageDate(context, agecontroller),
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 4,
                           ),
@@ -105,36 +109,28 @@ class _bookPageState extends State<bookPage> {
                             height: MediaQuery.of(context).size.height / 20,
                             width: MediaQuery.of(context).size.width / 3.5,
                             decoration: BoxDecoration(
-                             gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [
-                                Colors.white60,
-                                Colors.white12
-                              ]),
+                              gradient: const LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [Colors.white60, Colors.white12]),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
                                 width: 2,
-                                color: Color.fromRGBO(
-                                  47,
-                                  88,
-                                  205,
-                                  1,
-                                ),
+                                color: Colors.transparent,
                               ),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
                               child: TextField(
                                 controller: dateController,
-                                keyboardType: TextInputType
-                                    .number, // Numeric keyboard type
-                                decoration: InputDecoration(
+                                keyboardType: TextInputType.number,
+                                decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Date',
                                     hintStyle: TextStyle(color: Colors.white)),
                                 onTap: () {
                                   _selectDate(context);
+                                  print(widget.dest.toString());
                                 },
                                 readOnly: true,
                               ),
@@ -147,19 +143,22 @@ class _bookPageState extends State<bookPage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => SplashScreen(),
-                            ),
-                          );
+                          confirmbtn(context, nameController, agecontroller, dateController, widget.dest.toString()  );
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 20,
                           width: MediaQuery.of(context).size.width / 2.5,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
-                              color: Color.fromRGBO(87, 108, 188, 1)),
-                          child: Center(
+                             gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                          Color.fromRGBO(255, 75, 145,1),
+                          Color.fromRGBO(91, 8, 136,1)
+
+                         ])),
+                          child: const Center(
                             child: Text(
                               'Confirm',
                               style:
@@ -178,19 +177,61 @@ class _bookPageState extends State<bookPage> {
       ),
     );
   }
+
+  void confirmbtn(
+      BuildContext context,
+      TextEditingController _control1,
+      TextEditingController _control2,
+      TextEditingController _date,
+      String dest
+      ) {
+    if (_control1.text == '' ||
+        _control2.text == '' ||
+        _date.text == '') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          duration: Duration(seconds: 1),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+          elevation: 0,
+          content: Container(
+            child: Center(
+              child: Text('Enter all the Specified Values'),
+            ),
+          )));
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => SplashScreen(
+            nameController: nameController,
+            Destination: dest ,
+          ),
+        ),
+      );
+    }
+  }
 }
 
 class SplashScreen extends StatelessWidget {
+  final TextEditingController nameController;
+  final String Destination;
+  SplashScreen({
+    required this.nameController,
+    required this.Destination
+  });
+
   @override
   Widget build(BuildContext context) {
     // Delay navigation to the new page for 2 seconds (adjust as needed)
+    
     Future.delayed(
-      Duration(seconds: 2),
+      const Duration(seconds: 4),
       () {
         // Navigate to the new page after the delay
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => const HomeScreen(),
           ),
         );
       },
@@ -200,7 +241,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
           child: Container(
-        decoration: BoxDecoration(color: Color.fromRGBO(109, 103, 228, 1)),
+        decoration: const BoxDecoration(color: Colors.black),
         child: Center(
           child: Column(
             children: [
@@ -208,17 +249,31 @@ class SplashScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 2.4,
               ),
               Text(
-                "Congratulations",
+                "Congratulations \n${nameController.text}",textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 30, color: Colors.white),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Text(
+              LoadingAnimationWidget.threeRotatingDots(
+                  color: Colors.blue, size: 35),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 30,
+              ),
+              const Text(
                 "The Booking Has been Confirmed",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 30, color: Colors.white),
-              )
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 40,
+              ),
+              Text('The Destination is ${Destination}',
+              textAlign: TextAlign.center
+              ,style: TextStyle(
+                fontSize: 28,
+                color: Colors.white
+              ),)
             ],
           ),
         ),

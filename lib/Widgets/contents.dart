@@ -66,7 +66,7 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
       isScrollControlled: true,
       isDismissible: true,
       context: context,
-      backgroundColor: Color.fromRGBO(12, 19, 79, 1),
+     
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       builder: (BuildContext context) {
         return DraggableScrollableSheet(
@@ -76,6 +76,15 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
             initialChildSize: 0.75,
             builder: (BuildContext context, controller) {
               return Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                    Color(0xFF4e4376 )
+                    ,Color(0xFF2b5876)])
+                ),
                   child: SingleChildScrollView(
                 child: Center(
                   child: Column(
@@ -109,20 +118,24 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 60,
                       ),
-                      Container(
-                        child: Center(
-                            child: Text(
-                          plntdesc,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          child: Center(
+                              child: Text(
+                            plntdesc,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          )),
+                        ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height/40,
                       ),
                       InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const bookPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> bookPage(dest: planetName,)));
+                          
                         },
                         child: Container(
                           
@@ -130,7 +143,14 @@ void bookingInterface(BuildContext context, String plntimg, String plntdesc,
                           width: MediaQuery.of(context).size.width/2.5,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
-                            color: Color.fromRGBO(87, 108, 188 ,1)
+                         gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                          Color.fromRGBO(255, 75, 145,1),
+                          Color.fromRGBO(91, 8, 136,1)
+              
+                         ])
                           ),
                           child: Center(
                             child: Text('Book Now',style: TextStyle(

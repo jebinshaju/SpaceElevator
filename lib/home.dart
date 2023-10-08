@@ -43,8 +43,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: InkWell(
         onTap: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => HomeScreen()));
         },
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
@@ -73,13 +75,27 @@ class _HomeState extends State<Home> {
                             height: screenHeight / 3.5,
                           ),
                           Text(
-                            'Space Elevator',
+                            'Space\nElevator',
+                            textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: screenWidth * 0.1,
+                              fontSize: screenWidth * 0.15,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          SizedBox(
+                            height: screenHeight / 2.596,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                height: MediaQuery.of(context).size.height/8,
+                                color: Colors.transparent,
+                                child: Image.asset('lib/assets/pngwing.com.png'),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),

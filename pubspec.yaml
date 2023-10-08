@@ -38,11 +38,16 @@ dependencies:
   video_player: ^2.7.2
   intl: ^0.18.1
   loading_animation_widget: ^1.2.0+4
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "lib/assets/Firefly space elevator logo 3d 38496.jpg"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -75,6 +80,7 @@ flutter:
     - lib/assets/neptune.png
     - lib/assets/moon.png
     - lib/assets/sun.png
+    - lib/assets/pngwing.com.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
